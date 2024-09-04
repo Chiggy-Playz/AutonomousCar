@@ -1,12 +1,19 @@
+import torch
+
 class Constants:
     """Used to store all the constants used in the project"""
 
     episode_limit: int = 10
-    steer_mag: float = 1.
+    steer_mag: float = 1.0
 
+    vehicle_bp_name = "vehicle.tesla.model3"
     # Hard coded for tesla model 3
     cam_x: float = 2.5
-    cam_y: float = 0.7
+    cam_z: float = 0.7
+    cam_fov: int = 110
+
+    image_resolution_size: tuple[int, int] = (640, 640)
+    tensor_device: str = "cuda" if torch.cuda.is_available() else "cpu"
 
 
 class Hyperparameters:
@@ -32,6 +39,7 @@ class Hyperparameters:
     gamma = 0.99
     lmbda = 0.95
     entropy_eps = 1e-4
+
 
 constants = Constants()
 hyperparameters = Hyperparameters()

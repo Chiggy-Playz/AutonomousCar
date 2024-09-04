@@ -1,5 +1,6 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+
 class Settings(BaseSettings):
     """
     Application settings.
@@ -10,6 +11,9 @@ class Settings(BaseSettings):
 
     CARLA_HOST: str = "localhost"
     CARLA_PORT: int = 2000
+    CARLA_RESET_WORLD: bool = False
+
+    TENSORBOARD_LOG_DIR: str = "logs/tensorboard"
 
     model_config = SettingsConfigDict(
         env_file=".env",
