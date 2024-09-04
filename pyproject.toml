@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "autonomouscar"
+version = "0.1.0"
+description = ""
+authors = ["Chiggy-Playz <garg.chirag2004@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+numpy = "^2.1.1"
+pydantic = "^2.8.2"
+pydantic-settings = "^2.4.0"
+torchrl = "^0.5.0"
+tensordict = "^0.5.0"
+torch = "^2.4.0"
+carla = {path = "dependencies/carla/carla-0.9.15-cp37-cp37m-win_amd64.whl"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
