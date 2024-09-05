@@ -17,7 +17,7 @@ class Settings(BaseSettings):
 
     model_config = SettingsConfigDict(
         env_file=".env",
-        env_prefix="HLNA_API_",
+        env_prefix="CAR_",
         env_file_encoding="utf-8",
     )
 

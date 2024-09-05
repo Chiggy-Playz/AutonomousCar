@@ -19,9 +19,6 @@ from autonomous_car.logging import tensorboard_logger
 class Environment(EnvBase):
     """Environment class for the autonomous car simulation."""
 
-    client: carla.Client
-    world: carla.World
-
     def __init__(self, seed=None):
         super().__init__(device=constants.tensor_device, batch_size=Size())
         self.front_camera: Tensor | None = None
@@ -67,9 +64,7 @@ class Environment(EnvBase):
         except:
             pass
 
-        self.client = carla.Client(settings.CARLA_HOST, settings.CARLA_PORT)
-        self.client.set_timeout(30.0)
-        self.set_world()
+        self.setup_client()
 
     @property
     def spectator(self) -> carla.Actor:
@@ -231,7 +226,6 @@ class Environment(EnvBase):
             ],
             np.int32,
         )
-        # Jani
         cv2.fillPoly(mask, [polygon], (255, 255, 255))
         cropped_edges = cv2.bitwise_and(edges, mask)
         return cropped_edges
